@@ -23,6 +23,7 @@ return new class extends Migration
             $table->double('lng')->nullable();
             $table->string('color');
             $table->boolean('is_active')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
