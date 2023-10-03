@@ -1125,5 +1125,12 @@
     "Zimbabwe": "Zimbabwe",
     "ZIP / Postal Code": "PSČ",
     "Zip / Postal Code": "PSČ",
-    "Åland Islands": "Ålandské ostrovy"
+    "Åland Islands": "Ålandské ostrovy",
+    "monday": "Pondělí",
+    "tuesday": "Úterý",
+    "wednesday": "Středa",
+    "thursday": "Čtvrtek",
+    "friday": "Pátek",
+    "saturday": "Sobota",
+    "sunday": "Neděle"
 }

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\GuestResource\Pages;
 use App\Filament\Resources\GuestResource\RelationManagers;
+use App\Mail\Invite;
 use App\Models\Event;
 use App\Models\Guest;
 use Faker\Provider\Text;
@@ -20,6 +21,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Mail;
 use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 
 class GuestResource extends Resource
@@ -78,7 +80,7 @@ class GuestResource extends Resource
                     ->label('Jméno')
                     ->searchable()
                     ->sortable()
-                ->description(fn(Guest $record) => $record->addressing),
+                    ->description(fn(Guest $record) => $record->addressing),
 
                 TextColumn::make('email')
                     ->label('E-mail')

@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Enums\GuestStatus;
+use App\Mail\Invite;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Mail;
 use OwenIt\Auditing\Contracts\Auditable;
 
 class Guest extends Model implements Auditable
@@ -15,7 +17,7 @@ class Guest extends Model implements Auditable
         'name',
         'addressing',
         'email',
-        'arrive',
+        'status',
         'invitation_sent_at',
         'event_id',
     ];
@@ -31,6 +33,8 @@ class Guest extends Model implements Auditable
 
     public function sendInvitation()
     {
+        Mail::to($this->email)->send(new Invite($this));
+
         $this->invitation_sent_at = now();
         $this->save();
     }
@@ -39,7 +43,7 @@ class Guest extends Model implements Auditable
     {
         parent::boot();
 
-        static::saving(function ($guest) {
+        static::creating(function ($guest) {
             $guest->key = bin2hex(random_bytes(12));
         });
     }

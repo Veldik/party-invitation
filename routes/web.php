@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with(['event' => \App\Models\Event::active()]);
 });
+
+Route::prefix('invite/{guest:key}')
+    ->name('invite.')
+    ->group(function () {
+        Route::get('/', [GuestController::class, 'show'])->name('show');
+        Route::get('accept', [GuestController::class, 'accept'])->name('accept');
+        Route::get('decline', [GuestController::class, 'decline'])->name('decline');
+    });
