@@ -16,6 +16,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 
 
@@ -37,7 +38,7 @@ class EventResource extends Resource
                 TextInput::make('description')->required()->label('Popis'),
                 DateTimePicker::make('start')->required()->label('Začátek'),
                 DateTimePicker::make('end')->required()->label('Konec'),
-                TextInput::make('invitation_letter')->required()->label('Pozvánka'),
+                TinyEditor::make('invitation_letter')->language('cs')->required()->label('Pozvánka'),
                 TextInput::make('location')->required()->label('Místo'),
                 TextInput::make('lat')->required()->label('Zeměpisná šířka'),
                 TextInput::make('lng')->required()->label('Zeměpisná délka'),
