@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+    kalbastoleti:
+        image: "veldik/kalbastoleti:latest"
+        build:
+            context: ../../..
+            args:
+                BASE_TAG: latest
+                network: default
+        container_name: "kalbastoleti"
+        restart: "always"
+        volumes:
+            - ./:/var/www/html/
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.kalbastoleti.rule=Host(`kalbastoleti.cz`)"
+          - "traefik.http.routers.kalbastoleti.entrypoints=websecure"
+          - "traefik.http.services.kalbastoleti.loadbalancer.server.port=80"
+          - "traefik.http.routers.kalbastoleti.service=kalbastoleti"
+          - "traefik.http.routers.kalbastoleti.tls.certresolver=lets-encrypt"
+        deploy:
+            resources:
+                limits:
+                    cpus: "2"
+                    memory: 1024M
+
+networks:
+    default:
+        external:
+            name: webhosting
