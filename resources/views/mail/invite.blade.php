@@ -54,7 +54,7 @@
 
     <p>{{$guest->addressing}},</p>
 
-    <p>{{$guest->event->invitation_letter}}</p>
+    <p>{{!! $guest->event->invitation_letter !!}}</p>
 
     <div style="text-align: center">
         <p>Odpověď na pozvánku:</p>
