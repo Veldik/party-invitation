@@ -12,7 +12,7 @@
 
     <div class="flex justify-center items-center h-screen">
         <div class="text-center">
-            <div class="text-white p-8 rounded shadow-lg">
+            <div class="text-white p-8 border-b-2">
                 <h1 class="text-2xl font-bold mb-4">Pozvánka přijata</h1>
                 <p class="text-white mb-4">Děkujeme, že jste přijmul(a) pozvánku.</p>
             </div>

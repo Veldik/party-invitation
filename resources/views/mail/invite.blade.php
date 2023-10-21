@@ -54,12 +54,12 @@
 
     <p>{{$guest->addressing}},</p>
 
-    <p>{{!! $guest->event->invitation_letter !!}}</p>
+    <p>{!! $guest->event->invitation_letter !!}</p>
 
     <div style="text-align: center">
         <p>Odpověď na pozvánku:</p>
-        <a style="background-color: #7ed96f;" href="{{ url('invite/' .  $guest->key . '/accept' ) }}">Potvrdit účast</a>
-        <a style="background-color: #bb626e;" href="{{ url('invite/' .  $guest->key . '/decline' ) }}">Nezúčastním se</a>
+        <a style="background-color: #7ed96f; color: #ffffff" href="{{ url('invite/' .  $guest->key . '/accept' ) }}">Potvrdit účast</a>
+        <a style="background-color: #bb626e; color: #ffffff" href="{{ url('invite/' .  $guest->key . '/decline' ) }}">Nezúčastním se</a>
     </div>
 
 </div>
