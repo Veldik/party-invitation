@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,7 +17,6 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 
 
@@ -38,7 +38,7 @@ class EventResource extends Resource
                 TextInput::make('description')->required()->label('Popis'),
                 DateTimePicker::make('start')->required()->label('Začátek'),
                 DateTimePicker::make('end')->required()->label('Konec'),
-                TinyEditor::make('invitation_letter')->language('cs')->required()->label('Pozvánka'),
+                RichEditor::make('invitation_letter')->required()->label('Pozvánka'),
                 TextInput::make('location')->required()->label('Místo'),
                 TextInput::make('lat')->required()->label('Zeměpisná šířka'),
                 TextInput::make('lng')->required()->label('Zeměpisná délka'),
