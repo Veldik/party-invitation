@@ -14,7 +14,7 @@
         <div class="text-center">
             <div class="text-white p-8 border-b-2">
                 <h1 class="text-2xl font-bold mb-4">Pozvánka přijata</h1>
-                <p class="text-white mb-4">Děkujeme, že jste přijmul(a) pozvánku.</p>
+                <p class="text-white mb-4">Děkujeme, že jste přijal(a) pozvánku.</p>
             </div>
             <br>
             <h1 class="text-4xl font-bold text-white">{{ $guest->event->name }}</h1>
